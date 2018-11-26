@@ -6,24 +6,23 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     [Header("Player")]
-    [SerializeField] float moveSpeed = 1f;
     [SerializeField] int health = 200;
 
     [Header("Projectile")]
     [SerializeField] GameObject laser;
     [SerializeField] float projectileSpeed = 20f;
-    [SerializeField] float laserFireRate = 0.5f;
+    [SerializeField] float laserFireRate = 0.3f;
+
+    [Header("Sound Effects")]
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] [Range(0, 1)] float soundVolume = 1f;
 
     Coroutine shootCoroutine;
 
     float xMin, xMax;
     float yMin, yMax;
     float padding = 0.5f;
-
-    [Header("Sound Effects")]
-    [SerializeField] AudioClip shootSound;
-    [SerializeField] AudioClip deathSound;
-    [SerializeField] float soundVolume = 1f;
 
     // Unity Methods
 
@@ -73,14 +72,13 @@ public class Player : MonoBehaviour {
 
     private void Move() {
 
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed * 0.5f;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+        var mouseXPos = Input.mousePosition.x / Screen.width * 8f - 4f;
+        var mouseYPos = Input.mousePosition.y / Screen.height * 14f - 7f;
 
-        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+        var newXPos = Mathf.Clamp(mouseXPos, xMin, xMax);
+        var newYPos = Mathf.Clamp(mouseYPos, yMin, yMax);
 
         transform.position = new Vector2(newXPos, newYPos);
-
     }
 
     private void Shoot() {
