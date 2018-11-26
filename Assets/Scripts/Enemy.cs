@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject explosionParticles;
     float explosionDuration = 1f;
 
-    float projectileSpeed = 20f;
+    [SerializeField] float projectileSpeed = 20f;
 
     [SerializeField] AudioClip shootSound;
     [SerializeField] AudioClip deathSound;
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
 
     private void Update() {
 
-        countDownAndShoot();
+        CountDownAndShoot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -54,9 +54,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-
-
-    private void countDownAndShoot() {
+    private void CountDownAndShoot() {
 
         shootCounter -= Time.deltaTime;
 
