@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPathing : MonoBehaviour {
 
-    WaveConfig waveConfig;
+    Formation waveConfig;
     List<Transform> waypoints;
 
     int waypointIndex = 0;
@@ -20,7 +20,7 @@ public class EnemyPathing : MonoBehaviour {
         Move();
     }
 
-    public void SetWaveConfig(WaveConfig waveConfig) {
+    public void SetWaveConfig(Formation waveConfig) {
 
         this.waveConfig = waveConfig;
     }

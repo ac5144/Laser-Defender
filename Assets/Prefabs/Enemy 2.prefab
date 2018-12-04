@@ -91,15 +91,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba884a6d13f972349b72d882bece8932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   shootCounter: 0
-  minTimeBetweenShots: 0.5
-  maxTimeBetweenShots: 2
-  points: 100
+  minTimeBetweenShots: 1
+  maxTimeBetweenShots: 5
+  points: 150
   enemyLaser: {fileID: 1309132969416552, guid: b4346bf33dbcc4e4396a7a08e89880a5, type: 2}
   explosionParticles: {fileID: 1385111914978352, guid: ca208f244bd52d7438d58cedb1d5bc16,
     type: 2}
-  projectileSpeed: 20
+  projectileSpeed: 5
   shootSound: {fileID: 8300000, guid: 11d7b5e644a1aa14e997716ff82ed877, type: 3}
   deathSound: {fileID: 8300000, guid: c96d49c33784160408fcf872ddfcd52b, type: 3}
   soundVolume: 0.3

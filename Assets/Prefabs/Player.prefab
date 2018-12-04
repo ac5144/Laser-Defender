@@ -102,10 +102,10 @@ MonoBehaviour:
   health: 200
   laser: {fileID: 1539613865533328, guid: 8bdda9ef129f1524395ba68a4d2b4f4d, type: 2}
   projectileSpeed: 20
-  laserFireRate: 0.1
+  laserFireRate: 0.2
   shootSound: {fileID: 8300000, guid: f550367724a1f5247bd5869d1ac162fc, type: 3}
   deathSound: {fileID: 8300000, guid: c96d49c33784160408fcf872ddfcd52b, type: 3}
-  soundVolume: 0.3
+  soundVolume: 0.35
 --- !u!198 &198171991571721970
 ParticleSystem:
   m_ObjectHideFlags: 1
