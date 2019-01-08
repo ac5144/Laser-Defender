@@ -6,11 +6,11 @@ public class Level : MonoBehaviour {
 
     [SerializeField] List<Wave> allWaves;
     [SerializeField] int maxNumWaves;
-    EnemySpawner2 enemySpawner;
+    EnemySpawner enemySpawner;
 
     private void Start() {
 
-        enemySpawner = FindObjectOfType<EnemySpawner2>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
         StartCoroutine(SpawnAllWaves());
     }
 
