@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4005926323165022}
   - component: {fileID: 212643318534659364}
-  - component: {fileID: 114073249705251070}
-  - component: {fileID: 114793689627836492}
   - component: {fileID: 58881051445308802}
   - component: {fileID: 50187970789326070}
+  - component: {fileID: 114073249705251070}
+  - component: {fileID: 114793689627836492}
   - component: {fileID: 114382404037326496}
+  - component: {fileID: 114933613169384958}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -117,7 +118,7 @@ MonoBehaviour:
   health: 100
   shootCounter: 0
   minTimeBetweenShots: 1
-  maxTimeBetweenShots: 5
+  maxTimeBetweenShots: 3
   points: 100
   enemyLaser: {fileID: 1309132969416552, guid: b4346bf33dbcc4e4396a7a08e89880a5, type: 2}
   explosionParticles: {fileID: 1385111914978352, guid: ca208f244bd52d7438d58cedb1d5bc16,
@@ -126,6 +127,17 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 11d7b5e644a1aa14e997716ff82ed877, type: 3}
   deathSound: {fileID: 8300000, guid: c96d49c33784160408fcf872ddfcd52b, type: 3}
   soundVolume: 0.3
+--- !u!114 &114933613169384958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285367187109448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2588db061604f8c945561cafabb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212643318534659364
 SpriteRenderer:
   m_ObjectHideFlags: 1

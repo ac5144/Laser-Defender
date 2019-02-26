@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4667976908399226}
   - component: {fileID: 212141262496001206}
-  - component: {fileID: 114865999612666114}
-  - component: {fileID: 114681331455081512}
   - component: {fileID: 58019714241910812}
   - component: {fileID: 50798879323694556}
   - component: {fileID: 114301835485744000}
+  - component: {fileID: 114188868362300982}
+  - component: {fileID: 114275556170372862}
   m_Layer: 9
   m_Name: Enemy 3
   m_TagString: Untagged
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969946963746012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.06, y: 11.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,9 +77,57 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.037116885}
   serializedVersion: 2
-  m_Radius: 0.465
+  m_Radius: 0.88070834
+--- !u!114 &114188868362300982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969946963746012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f233ec16b6d04fa7c4bd120961089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  points: 1000
+  movementSpeed: 2
+  minTimeBetweenShots: 2
+  maxTimeBetweenShots: 3
+  laserPrefab: {fileID: 1309132969416552, guid: b4346bf33dbcc4e4396a7a08e89880a5,
+    type: 2}
+  laserSpeed: 5
+  bigLaserPrefab: {fileID: 1309132969416552, guid: 52497da634228834f9f2472fd6d0a585,
+    type: 2}
+  bigLaserSpeed: 3
+  allDestinations:
+  - {fileID: 4633298107800642, guid: fe9a407846563b54e8bb5f1b597067af, type: 2}
+  - {fileID: 4520763462050036, guid: 750972f3da6c87843b4c11b0070c1ece, type: 2}
+  - {fileID: 4050481571951318, guid: 9829a1babf16fd847b8c3e73cb27796a, type: 2}
+  - {fileID: 4284826778036720, guid: be3832373758957419fe9aca0dba32b3, type: 2}
+  - {fileID: 4042051452329722, guid: d3926a78546abc54583aa379bba20f6f, type: 2}
+  - {fileID: 4250798128478560, guid: b8f1bafe3e9178f44b45dc57518bfbd8, type: 2}
+  - {fileID: 4949120181023376, guid: 1104567c4e81cf9438df7807b818cde7, type: 2}
+  - {fileID: 4542325748548410, guid: 80815c5b7d8db9a4483c25e18a403972, type: 2}
+  - {fileID: 4788388697842726, guid: 0d1132e9660d69841b9863fe6449ba30, type: 2}
+  sideWaves:
+  - {fileID: 11400000, guid: 8f314204a37978745876145d4303f3c2, type: 2}
+  - {fileID: 11400000, guid: 30be157f6cf7a56428a47ea322abd8e4, type: 2}
+  startLocation: {fileID: 4520763462050036, guid: 750972f3da6c87843b4c11b0070c1ece,
+    type: 2}
+--- !u!114 &114275556170372862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969946963746012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2588db061604f8c945561cafabb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114301835485744000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,40 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
---- !u!114 &114681331455081512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1969946963746012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba884a6d13f972349b72d882bece8932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1000
-  shootCounter: 0
-  minTimeBetweenShots: 1
-  maxTimeBetweenShots: 3
-  points: 300
-  enemyLaser: {fileID: 1309132969416552, guid: 52497da634228834f9f2472fd6d0a585, type: 2}
-  explosionParticles: {fileID: 1385111914978352, guid: ca208f244bd52d7438d58cedb1d5bc16,
-    type: 2}
-  projectileSpeed: 10
-  shootSound: {fileID: 8300000, guid: d0860750cc2a6354bab2675450a05ac2, type: 3}
-  deathSound: {fileID: 8300000, guid: c96d49c33784160408fcf872ddfcd52b, type: 3}
-  soundVolume: 0.3
---- !u!114 &114865999612666114
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1969946963746012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b48150dcd3ee641a0ad156c0589ae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212141262496001206
 SpriteRenderer:
   m_ObjectHideFlags: 1

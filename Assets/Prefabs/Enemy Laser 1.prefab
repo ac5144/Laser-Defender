@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45c85eb362ab9247ab703d3823a7ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: 100
+  spinSpeed: 360
 --- !u!114 &114822789738328148
 MonoBehaviour:
   m_ObjectHideFlags: 1

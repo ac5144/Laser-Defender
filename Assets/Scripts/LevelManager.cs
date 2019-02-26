@@ -7,9 +7,8 @@ public class LevelManager : MonoBehaviour {
 
     [SerializeField] float delayInSeconds = 1f;
 
-	public void LoadGameScene() {
+    public void LoadGameScene() {
 
-        FindObjectOfType<GameSession>().ResetGame();
         SceneManager.LoadScene("Game");
     }
 
@@ -28,9 +27,20 @@ public class LevelManager : MonoBehaviour {
         StartCoroutine(WaitAndLoad());
     }
 
+    public void LoadGameWin() {
+
+        StartCoroutine(WaitAndLoadWin());
+    }
+
     IEnumerator WaitAndLoad() {
 
         yield return new WaitForSeconds(delayInSeconds);
         SceneManager.LoadScene("Game Over");
+    }
+
+    IEnumerator WaitAndLoadWin() {
+
+        yield return new WaitForSeconds(delayInSeconds);
+        SceneManager.LoadScene("Win");
     }
 }

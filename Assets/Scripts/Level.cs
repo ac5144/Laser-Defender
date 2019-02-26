@@ -6,12 +6,13 @@ public class Level : MonoBehaviour {
 
     [SerializeField] List<Wave> allWaves;
     [SerializeField] int maxNumWaves;
-    EnemySpawner2 enemySpawner;
+    EnemySpawner enemySpawner;
+    [SerializeField] GameObject bossPrefab;
 
     private void Start() {
 
-        enemySpawner = FindObjectOfType<EnemySpawner2>();
-        StartCoroutine(SpawnAllWaves());
+        enemySpawner = FindObjectOfType<EnemySpawner>();
+        StartCoroutine(SpawnEnemies());
     }
 
     IEnumerator SpawnAllWaves() {
@@ -21,5 +22,19 @@ public class Level : MonoBehaviour {
             Wave currentWave = allWaves[currentWaveNum];
             yield return StartCoroutine(enemySpawner.SpawnWave(currentWave.GetFormations()));
         }
+    }
+
+    void SpawnBoss() {
+
+        Vector3 spawnLocation = new Vector3(0, 9, 0);
+
+        Instantiate(bossPrefab, spawnLocation, Quaternion.identity);
+    }
+
+    IEnumerator SpawnEnemies() {
+
+        yield return StartCoroutine(SpawnAllWaves());
+
+        SpawnBoss();
     }
 }

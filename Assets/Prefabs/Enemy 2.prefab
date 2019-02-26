@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 58705267975988624}
   - component: {fileID: 50982693499928176}
   - component: {fileID: 114798566827394174}
+  - component: {fileID: 114164952219477824}
   m_Layer: 9
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -80,6 +81,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.465
+--- !u!114 &114164952219477824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844733920711818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56a2588db061604f8c945561cafabb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114211269651362750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,11 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba884a6d13f972349b72d882bece8932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 100
   shootCounter: 0
   minTimeBetweenShots: 1
   maxTimeBetweenShots: 5
-  points: 150
+  points: 100
   enemyLaser: {fileID: 1309132969416552, guid: b4346bf33dbcc4e4396a7a08e89880a5, type: 2}
   explosionParticles: {fileID: 1385111914978352, guid: ca208f244bd52d7438d58cedb1d5bc16,
     type: 2}

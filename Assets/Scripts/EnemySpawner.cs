@@ -4,41 +4,37 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-    [SerializeField] List<Formation> waveConfigs;
-    [SerializeField] int startingWave = 0;
-    [SerializeField] bool looping = false;
+    int numWavesBeingSpawned = 0;
 
-    private IEnumerator Start() {
+    public IEnumerator SpawnWave(List<Formation> allFormations) {
 
-        do {
+        foreach(var formation in allFormations) {
 
-            yield return StartCoroutine(SpawnAllWaves());
+            StartCoroutine(SpawnEnemies(formation));
         }
-        while (looping);
+
+        while (numWavesBeingSpawned > 0) {
+
+            yield return null;
+        }
     }
 
-    private IEnumerator SpawnEnemies(Formation waveConfig) {
+    public IEnumerator SpawnEnemies(Formation formation) {
+        
+        numWavesBeingSpawned++;
 
-        for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++) {
+        for (int enemyCount = 0; enemyCount < formation.GetNumberOfEnemies(); enemyCount++) {
 
             var newEnemy = Instantiate(
-                waveConfig.GetEnemyPrefab(), 
-                waveConfig.GetWaypoints()[0].transform.position, 
+                formation.GetEnemyPrefab(),
+                formation.GetWaypoints()[0].transform.position,
                 Quaternion.identity);
 
-            newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+            newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(formation);
 
-            yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawn());
-
+            yield return new WaitForSeconds(formation.GetTimeBetweenSpawn());
         }
-    }
 
-    private IEnumerator SpawnAllWaves() {
-
-        for (int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex++) {
-
-            var currentWave = waveConfigs[waveIndex];
-            yield return StartCoroutine(SpawnEnemies(currentWave));
-        }
+        numWavesBeingSpawned--;
     }
 }
